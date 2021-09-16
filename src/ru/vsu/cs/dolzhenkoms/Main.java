@@ -6,9 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double r1 = readNumber();
-        double r2 = readNumber();
-        double r3 = readNumber();
+        double r1 = readRadius("Small");
+        double r2 = readRadius("Middle");
+        double r3 = readRadius("Large");
 
         double square = getSquareOfShadedFigure(r1, r2, r3);
 
@@ -16,8 +16,8 @@ public class Main {
 
     }
 
-    private static double readNumber() {
-        System.out.print("Enter Radius - ");
+    private static double readRadius(String radiusType) {
+        System.out.printf("Enter %s Radius - ", radiusType);
 
         Scanner scn = new Scanner(System.in);
         double value = scn.nextDouble();
@@ -31,12 +31,12 @@ public class Main {
     }
 
     private static double getSquareOfShadedFigure(double r1, double r2, double r3) {
-        double totalSquare = 0, s1 = 0, s2 = 0, s3 = 0;
+        double totalSquare, s1 = 0, s2 = 0, s3 = 0;
 
         if(r1 >= 0 && r2 >= 0 && r3 > 0) {
-             s1 = r3 * r3;
-             s2 = s1 - 0.25 * Math.PI * r3 * r3;
-             s3 = 0.375 * Math.PI * (r2 * r2 - r1 * r1);
+            s1 = r3 * r3;
+            s2 = s1 - 0.25 * Math.PI * r3 * r3;
+            s3 = 0.375 * Math.PI * (r2 * r2 - r1 * r1);
         }
 
         totalSquare = s1 + s2 + s3;
